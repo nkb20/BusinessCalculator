@@ -13,4 +13,42 @@
     <string name="gsm_table">GSM Table</string>
     <string name="menu_gallery">Gallery</string>
     <string name="About_us">About</string>
+    
+    <string-array name="array_plyGsm">
+        <item>Select Ply</item>
+        <item>3</item>
+        <item>5</item>
+        <item>7</item>
+        <item>9</item>
+    </string-array>
+    
+    <string-array name="array_gsm">
+        <item>Select GSM</item>
+    </string-array>
+
+    <string-array name="array_3ply">
+        <item>Select GSM</item>
+        <item>350</item>
+        <item>400</item>
+        <item>450</item>
+        <item>525</item>
+    </string-array><string-array name="array_5ply">
+        <item>Select GSM</item>
+        <item>600</item>
+        <item>650</item>
+        <item>750</item>
+        <item>900</item>
+    </string-array><string-array name="array_7ply">
+        <item>Select GSM</item>
+        <item>850</item>
+        <item>900</item>
+        <item>1050</item>
+        <item>1275</item>
+    </string-array><string-array name="array_9ply">
+        <item>Select GSM</item>
+        <item>1100</item>
+        <item>1150</item>
+        <item>1350</item>
+        <item>1650</item>
+    </string-array>
 </resources>
