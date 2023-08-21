@@ -44,13 +44,12 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.cyan)));
 
 
-
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_gsmTable,R.id.nav_about_us)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_gsmTable, R.id.nav_about_us)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -59,11 +58,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Exit alert
-    @Override
-    public void onBackPressed() {
+//    FragmentManager fragmentManager = getSupportFragmentManager();
+//    Fragment fragment = fragmentManager.findFragmentById(R.id.nav_host_fragment_content_main);
+//     if(fragment instanceof HomeFragment){
+        @Override
+        public void onBackPressed() {
+
+
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle(R.string.app_name);
         builder.setIcon(R.mipmap.ic_launcher);
+
+
+        // Currently in MyFragment1
         builder.setMessage("Do you want to exit?")
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -71,24 +78,27 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                     }
                 })
+
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }
                 });
+
         AlertDialog alert = builder.create();
         alert.show();
+
     }
 
 
 
 
-        @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+//        @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.main, menu);
+//        return true;
+//    }
 
     @Override
     public boolean onSupportNavigateUp() {

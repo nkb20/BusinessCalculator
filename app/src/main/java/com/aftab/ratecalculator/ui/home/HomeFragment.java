@@ -19,6 +19,7 @@ import android.text.style.ClickableSpan;
 import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -515,7 +516,34 @@ public class HomeFragment extends Fragment {
     }
 
     // Back Pressed alert
+//    private void showExitAlertDialog() {
+//        ExitAlertDialogFragment dialogFragment = new ExitAlertDialogFragment();
+//        dialogFragment.show(getChildFragmentManager(), "exit_dialog");
+//    }
 
+    // Custom dialog fragment for exit alert
+//    public static class ExitAlertDialogFragment extends DialogFragment {
+//        @NonNull
+//        @Override
+//        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+//            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+//            builder.setTitle("Exit Alert")
+//                    .setMessage("Are you sure you want to exit?")
+//                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            getActivity().finish(); // Close the activity or perform exit action
+//                        }
+//                    })
+//                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            // Do nothing, just close the dialog
+//                        }
+//                    });
+//            return builder.create();
+//        }
+//    }
 
 
 
