@@ -4,33 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/boxbckground"
+    android:maxWidth="1000dp"
     android:minWidth="15dp"
+    android:scaleType="centerCrop"
     tools:context=".ui.home.HomeFragment">
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/text_home"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="8dp"-->
-    <!--        android:layout_marginTop="8dp"-->
-    <!--        android:layout_marginEnd="8dp"-->
-    <!--        android:textAlignment="center"-->
-    <!--        android:textSize="50sp"-->
-    <!--        android:text="Home Fragment"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <LinearLayout
+        android:id="@+id/first"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/right"
+        app:layout_constraintStart_toStartOf="@+id/left"
+        app:layout_constraintTop_toTopOf="@id/up1">
+
+        <TextView
+            android:id="@+id/customLinkTextView"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColorLink="@color/teal_200"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/toggle"
+            android:layout_width="10dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="Cut to cut Deckle"
+            android:textOff="Off"
+            android:textOn="On"
+            android:thumb="@drawable/switchthumb"
+            app:showText="true"
+            app:track="@drawable/switchtrack" />
+    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:orientation="horizontal"
-
         app:layout_constraintEnd_toStartOf="@+id/right"
         app:layout_constraintStart_toStartOf="@+id/left"
-        app:layout_constraintTop_toTopOf="@id/up1">
+        app:layout_constraintTop_toBottomOf="@+id/first">
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -164,8 +186,7 @@
                     android:focusable="true"
                     android:gravity="left"
                     android:text="*GSM"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
                 <!--                android:focusableInTouchMode="true"-->
 
 
@@ -223,7 +244,6 @@
         android:layout_height="90dp"
         android:layout_gravity="center_vertical"
         android:layout_marginTop="32dp"
-
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@id/right"
@@ -233,22 +253,28 @@
         <Button
             android:id="@+id/btnClear"
             android:layout_width="130dp"
-            android:layout_height="60dp"
+            android:layout_height="55dp"
             android:layout_marginRight="80sp"
-            android:text="Clear" />
+            android:background="@drawable/btnbackground"
+            android:text="Clear"
+            android:textColor="@color/black"
+            android:textSize="19sp" />
 
         <Button
             android:id="@+id/resultbtn"
             android:layout_width="130dp"
-            android:layout_height="60dp"
-            android:text="Result" />
+            android:layout_height="55dp"
+            android:background="@drawable/btnbackground"
+            android:text="Result"
+            android:textColor="@color/black"
+            android:textSize="19sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/resultLayout"
         android:layout_width="0dp"
-        android:layout_height="260sp"
+        android:layout_height="wrap_content"
         android:gravity="left"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/down"
@@ -307,7 +333,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="15dp" />
+        app:layout_constraintGuide_percent="0.98084813" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/up1"
@@ -330,14 +356,42 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="15dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+    <LinearLayout
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/sharebtnbackground"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@id/down"
         app:layout_constraintEnd_toStartOf="@+id/right"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:orientation="horizontal">
 
+
+
+
+
+        <ImageButton
+            android:id="@+id/imgBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/sharebtnbackground"
+            android:scaleType="centerCrop"
+            android:src="@drawable/whatsapp1" />
+
+
+    </LinearLayout>
+
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--        android:id="@+id/fab"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginBottom="20dp"-->
+    <!--        android:backgroundTint="@color/cyan"-->
+    <!--        android:src="@drawable/whats_app"-->
+    <!--        app:borderWidth="0dp"-->
+    <!--        app:fabSize="normal"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/down"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/right" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

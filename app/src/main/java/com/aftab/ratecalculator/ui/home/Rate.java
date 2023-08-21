@@ -10,8 +10,10 @@ public class Rate {
     float height;
     int gsm;
     int rate;
+    float result;
 
     Ids ids;
+
 
     Rate(Ids ids, float length, float width, float height, int gsm, int rate) {
         this.ids = ids;
@@ -22,8 +24,13 @@ public class Rate {
         this.rate = rate;
     }
 
-    float deckleValidation(float deckle) {
-
+    float deckleValidation(float deckle, boolean toggleCheck) {
+        while (toggleCheck) {
+            if (deckle > 0 && deckle <= 26) {
+                ids.txtDeckle.setBackgroundResource(R.color.red);
+                return (float) Math.ceil(deckle);
+            }
+        }
         if (deckle >= 25 && (int) deckle <= 51) {
             if ((int) deckle % 2 == 0) {
                 ids.txtDeckle.setBackgroundColor(Color.TRANSPARENT);
@@ -54,6 +61,7 @@ public class Rate {
         }
         return totalLength + 6;
     }
+
     public float finalresult(float Deckle, float totallength) {
         float result = 0;
 
@@ -65,7 +73,8 @@ public class Rate {
         return result;
     }
 
-    public void calulate() {
+    public void calulate(boolean toggleCheck) {
+
         float deckle = width + height;
         float totalLength = (length * 2) + (width * 2);
         if (length < width) {
@@ -81,24 +90,24 @@ public class Rate {
 //                System.out.println("Enter samller Value");
 
             } else {
-                deckle = deckleValidation(deckle);
+                deckle = deckleValidation(deckle, toggleCheck);
                 totalLength = lengthValidation(totalLength);
-                float result = finalresult(deckle, totalLength);
-                float weight=result/rate;
+                result = finalresult(deckle, totalLength);
+                float weight = result / rate;
 
 //            System.out.println(totalLength);
                 ids.txtRate.setBackgroundColor(Color.TRANSPARENT);
 //                ids.txtRate.setText(Float.toString(totalLength));
 //                System.out.println(String.format("%.2f", result));
-                ids.txtRate.setText(String.format("Price of the box is %.2f/-",result));
-                ids.txtSize.setText(String.format("Size - %.2f\'\'*%.2f\'\'*%.2f\'\'",length,width,height));
-                if(weight>1){
-                    ids.txtWeight.setText(String.format("Weight - %.3f kg",(weight)));
-                }
-                else ids.txtWeight.setText(String.format("Weight - %.3f gm",(weight)));
+                ids.txtRate.setText(String.format("Price of the box is %.2f/-", result));
 
-                ids.txtDeckle.setText(String.format("Deckle - %.2f",deckle));
-                ids.txtLength.setText(String.format("Length - %.2f",totalLength));
+                ids.txtSize.setText(String.format("Size - %.2f\'\'*%.2f\'\'*%.2f\'\'", length, width, height));
+                if (weight > 1) {
+                    ids.txtWeight.setText(String.format("Weight - %.3f kg", (weight)));
+                } else ids.txtWeight.setText(String.format("Weight - %.0f gm", (weight * 1000)));
+
+                ids.txtDeckle.setText(String.format("Deckle - %.2f", deckle));
+                ids.txtLength.setText(String.format("Length - %.2f", totalLength));
             }
         }
     }

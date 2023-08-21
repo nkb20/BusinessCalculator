@@ -9,16 +9,18 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:theme="@style/Theme.RateCalculator.AppBarOverlay">
+        android:theme="@style/Theme.RateCalculator.AppBarOverlay"
+        >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-      app:title="@string/nav_header_title"
             android:layout_height="?attr/actionBarSize"
             android:background="#F3B344"
-            app:popupTheme="@style/Theme.RateCalculator.PopupOverlay" />
+            app:title="@string/nav_header_title"
+            app:titleTextColor="#22282C"
+            app:popupTheme="@style/Theme.RateCalculator.PopupOverlay"
+            />
 
     </com.google.android.material.appbar.AppBarLayout>
 

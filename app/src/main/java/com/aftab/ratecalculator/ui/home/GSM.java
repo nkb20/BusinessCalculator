@@ -10,7 +10,7 @@ public class GSM {
     }
 
     public String getGSM() {
-        String selectedGSM = "hh";
+        String selectedGSM = "";
         if(ply==7 && gsm==900){
             return "150/100/100";
         }
